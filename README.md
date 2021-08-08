@@ -56,6 +56,12 @@ You'll see the tests execute, as below:
 
 ![](./assets/tests.png?raw=true "Title")
 
+## **Hooks**
+
+This project enforces some best practices via the use of **husky** to lint all code on commit, and to run all tests before a push.  It also will run prettier when a file is staged.  If there are linting errors, you won't be able to commit the offending code.  If tests are failing, you won't be able to push that code.  These are best practices that help keep bad code from entering the repo.  If you don't like it, sorry not sorry... that's the way I've set this up.  However, if you really **hate** it and you simply *must* fly by the seat of your pants, you can disable all that by simply deleting the **.huskyrc.json** file in the project root:
+
+![](./assets/husky.png?raw=true "Title")
+
 ## **Known Issues**
 
 This is a work in progress; no complaining! ;-)
