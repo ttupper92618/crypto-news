@@ -44,4 +44,27 @@ Storybook will load in your local browser at http://localhost:6006/, and should 
 
 ![](./assets/storybook.png?raw=true "Title")
 
+## **Running Tests** ##
+
+Run the tests for this project simply by executing the following from your terminal:
+
+```
+yarn test
+```
+
+You'll see the tests execute, as below:
+
+![](./assets/tests.png?raw=true "Title")
+
+## **Known Issues**
+
+This is a work in progress; no complaining! ;-)
+
+## **Next Steps**
+
+- Finish a basic implementation
+- Real tests
+- CI/CD using GitHub actions
+- Mobile support
+
 
