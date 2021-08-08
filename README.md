@@ -64,7 +64,8 @@ This project enforces some best practices via the use of **husky** to lint all c
 
 ## **Known Issues**
 
-This is a work in progress; no complaining! ;-)
+- This is a work in progress; no complaining! ;-)
+- Prettier is broken; no complaining! ;-)
 
 ## **Next Steps**
 
@@ -72,5 +73,6 @@ This is a work in progress; no complaining! ;-)
 - Real tests
 - CI/CD using GitHub actions
 - Mobile support
+- Fix prettier
 
 
