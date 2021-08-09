@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { LoadingProps } from "./Loading.types";
 import rem from "../../utils/rem";
 import loadingAnimation from "../../assets/loading.gif";
+import ReactCSSTransitionGroup from "react-transition-group";
 
 const LoadingIndicatorContainer = styled.div<LoadingProps>`
   display: ${({ show }: LoadingProps) => (show ? "" : "none")};

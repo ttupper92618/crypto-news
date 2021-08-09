@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { OverlayProps } from "./Overlay.types";
 import logo from "../../assets/logo.gif";
 import rem from "../../utils/rem";
+import ReactCSSTransitionGroup from "react-transition-group";
 
 const OverlayContainer = styled.div<OverlayProps>`
   height: 100vh;
