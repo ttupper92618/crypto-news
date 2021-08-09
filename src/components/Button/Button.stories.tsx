@@ -1,12 +1,17 @@
 /* eslint-disable */
-import Button from './Button';
+import Button from "./Button";
 
 export default {
+  parameters: {
+    controls: {
+      disabled: true,
+    },
+  },
   title: "Button",
 };
 
 export const Default = () => <Button />;
 
 Default.story = {
-  name: 'default',
+  name: "default",
 };

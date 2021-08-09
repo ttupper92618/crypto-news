@@ -3,6 +3,11 @@ import Loading from "./Loading";
 import styled from "@emotion/styled";
 
 export default {
+  parameters: {
+    controls: {
+      disabled: true,
+    },
+  },
   title: "Loading",
 };
 
