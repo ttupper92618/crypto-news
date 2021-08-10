@@ -7,7 +7,8 @@ import rem from "../../utils/rem";
 const OverlayContainer = styled.div<OverlayProps>`
   height: 100vh;
   width: 100vw;
-  z-index: 7;
+  position: relative;
+  z-index: 30;
   display: flex;
   flex-direction: column;
   align-items: center;

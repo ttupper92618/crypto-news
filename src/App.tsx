@@ -4,6 +4,7 @@ import Overlay from "./components/Overlay/Overlay";
 import { StoryService } from "./services/story.service";
 import { Articles, Error } from "./services/story.service.types";
 import Button from "./components/Button/Button";
+import Header from "./components/Header/Header";
 
 function App() {
   const storyService = new StoryService();
@@ -40,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <Overlay show={showOverlay} loaderWidth={60} />
-      <Button primary={true} size="medium" label="Sign Up"></Button>
+      {!showOverlay ? <Header /> : <></>}
       <ul>
         {
           // dump all the URLs into the dom for now
