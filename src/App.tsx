@@ -7,6 +7,7 @@ import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
 import styled from "styled-components";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Viewer from "./components/Viewer/Viewer";
 
 const Layout = styled.div`
   display: flex;
@@ -57,14 +58,7 @@ function App() {
 
         <ViewerAssembly>
           <Sidebar />
-          <ul>
-            {
-              // dump all the URLs into the dom for now
-              allStories?.articles.map((item) => {
-                return <li>{item.url}</li>;
-              })
-            }
-          </ul>
+          <Viewer content={allStories}></Viewer>
         </ViewerAssembly>
       </Layout>
     </div>
