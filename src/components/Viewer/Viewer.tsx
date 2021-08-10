@@ -4,7 +4,7 @@ import rem from "../../utils/rem";
 import { ViewerProps } from "./Viewer.types";
 
 const ViewerContainer = styled.div<ViewerProps>`
-  overflow: visible;
+  overflow: auto;
   height: calc(100vh - 66px);
 `;
 
