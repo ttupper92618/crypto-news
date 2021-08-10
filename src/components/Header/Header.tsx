@@ -4,26 +4,6 @@ import { HeaderProps } from "./Header.types";
 import Button from "../Button/Button";
 import rem from "../../utils/rem";
 
-/*
-svg {
-  display: inline-block;
-  vertical-align: top;
-}
-
-h1 {
-  font-weight: 900;
-  font-size: 20px;
-  line-height: 1;
-  margin: 6px 0 6px 10px;
-  display: inline-block;
-  vertical-align: top;
-}
-
-button + button {
-  margin-left: 10px;
-}
-*/
-
 const HeaderWrapper = styled.div`
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

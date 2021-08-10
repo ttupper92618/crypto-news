@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #fffdea;
+  background-color: white;
 }
 
 .App-logo {
@@ -36,5 +36,5 @@ html {
 
 body {
   font-size: 2rem;
-  letter-spacing: .25rem;
+  letter-spacing: 0.25rem;
 }

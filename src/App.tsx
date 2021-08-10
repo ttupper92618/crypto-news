@@ -5,6 +5,16 @@ import { StoryService } from "./services/story.service";
 import { Articles, Error } from "./services/story.service.types";
 import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
+import styled from "styled-components";
+
+const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const ViewerAssembly = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 function App() {
   const storyService = new StoryService();
@@ -41,15 +51,20 @@ function App() {
   return (
     <div className="App">
       <Overlay show={showOverlay} loaderWidth={60} />
-      {!showOverlay ? <Header /> : <></>}
-      <ul>
-        {
-          // dump all the URLs into the dom for now
-          allStories?.articles.map((item) => {
-            return <li>{item.url}</li>;
-          })
-        }
-      </ul>
+      <Layout>
+        {!showOverlay ? <Header /> : <></>}
+
+        <ViewerAssembly>
+          <ul>
+            {
+              // dump all the URLs into the dom for now
+              allStories?.articles.map((item) => {
+                return <li>{item.url}</li>;
+              })
+            }
+          </ul>
+        </ViewerAssembly>
+      </Layout>
     </div>
   );
 }
