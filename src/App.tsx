@@ -6,6 +6,7 @@ import { Articles, Error } from "./services/story.service.types";
 import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
 import styled from "styled-components";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 const Layout = styled.div`
   display: flex;
@@ -55,6 +56,7 @@ function App() {
         {!showOverlay ? <Header /> : <></>}
 
         <ViewerAssembly>
+          <Sidebar />
           <ul>
             {
               // dump all the URLs into the dom for now
