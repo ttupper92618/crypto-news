@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({
             />
           </g>
         </Logo>
-        <TitleBlock>Crypto News</TitleBlock>
+        <TitleBlock>Cryptly</TitleBlock>
       </LogoWrapper>
       <div>
         {user ? (

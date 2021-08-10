@@ -1,4 +1,4 @@
-# **Crypto: a crypto news aggregator / feed**
+# **Cryptly: a crypto news aggregator / feed**
 
 This is a React application which provides access to crypto related news using a fun, engaging user experience.
 

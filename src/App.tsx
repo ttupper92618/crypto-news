@@ -50,12 +50,12 @@ function App() {
     console.log(err);
   };
 
+  // Just dumping the retrieved stories to the viewer for now.
   return (
     <div className="App">
       <Overlay show={showOverlay} loaderWidth={60} />
       <Layout>
-        {!showOverlay ? <Header /> : <></>}
-
+        <Header />
         <ViewerAssembly>
           <Sidebar />
           <Viewer content={allStories}></Viewer>
