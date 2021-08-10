@@ -23,3 +23,9 @@ export interface Sources {
   sources: Source[];
   status: string;
 }
+
+export interface Error {
+  code: string;
+  message: string;
+  status: string;
+}
