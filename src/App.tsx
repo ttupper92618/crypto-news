@@ -24,7 +24,7 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(true);
   const [allStories, setAllStories] = useState<Articles>();
   const [searchTerm, setSearchTerm] = useState("crypto");
-  const [selectedStoryUrl, setSelectedStoryUrl] = useState("");
+  const [selectedStory, setSelectedStory] = useState<Article>();
 
   useEffect(() => {
     // the first time the app spins up, get everything and hide the overlay when done
@@ -52,7 +52,7 @@ function App() {
   };
 
   const changeStory = (item: Article) => {
-    setSelectedStoryUrl(item.url);
+    setSelectedStory(item);
     console.log(item);
   };
 
@@ -68,7 +68,7 @@ function App() {
             stories={allStories}
             onItemSelected={changeStory}
           />
-          <Viewer contentUrl={selectedStoryUrl}></Viewer>
+          <Viewer item={selectedStory}></Viewer>
         </ViewerAssembly>
       </Layout>
     </div>

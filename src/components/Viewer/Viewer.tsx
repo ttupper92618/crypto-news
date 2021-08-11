@@ -8,8 +8,13 @@ const ViewerContainer = styled.div<ViewerProps>`
   height: calc(100vh - ${rem(9.75)});
 `;
 
-const Viewer: React.FC<ViewerProps> = ({ contentUrl }: ViewerProps) => {
-  return <ViewerContainer>{contentUrl}</ViewerContainer>;
+const ViewerFrame = styled.iframe`
+  width: 100%;
+  height: calc(100vh - ${rem(9.75)});
+`;
+
+const Viewer: React.FC<ViewerProps> = ({ item }: ViewerProps) => {
+  return <ViewerContainer>{item?.url}</ViewerContainer>;
 };
 
 export default Viewer;

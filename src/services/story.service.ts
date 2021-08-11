@@ -83,4 +83,26 @@ export class StoryService {
         });
     });
   };
+
+  /**
+   * executes a query to get the list of allowable sources
+   * @Returns a promise
+   */
+  getPage = (url: string): Promise<any> => {
+    let results: any;
+    const headers = {
+      "Content-Type": "text/plain",
+    };
+    return new Promise((resolve, reject) => {
+      axios
+        .get(url)
+        .then((res) => {
+          results = res;
+          resolve(results);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  };
 }
