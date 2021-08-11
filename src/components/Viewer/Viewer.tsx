@@ -5,7 +5,7 @@ import { ViewerProps } from "./Viewer.types";
 
 const ViewerContainer = styled.div<ViewerProps>`
   overflow: auto;
-  height: calc(100vh - ${rem(9.75)});
+  height: calc(100vh - ${rem(12.75)});
   width: 100%;
   display: flex;
   flex-direction: column;
