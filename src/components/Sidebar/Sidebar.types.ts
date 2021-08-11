@@ -1,7 +1,8 @@
-import { Articles } from "../../services/story.service.types";
+import { Article, Articles } from "../../services/story.service.types";
 
 export interface SidebarProps {
   term: string;
   stories?: Articles;
-  onTermChanged?: () => void;
+  onTermChanged?: (term: string) => void;
+  onItemSelected?: (item: Article) => void;
 }

@@ -8,8 +8,8 @@ const ViewerContainer = styled.div<ViewerProps>`
   height: calc(100vh - ${rem(9.75)});
 `;
 
-const Viewer: React.FC<ViewerProps> = ({ content }: ViewerProps) => {
-  return <ViewerContainer></ViewerContainer>;
+const Viewer: React.FC<ViewerProps> = ({ contentUrl }: ViewerProps) => {
+  return <ViewerContainer>{contentUrl}</ViewerContainer>;
 };
 
 export default Viewer;
