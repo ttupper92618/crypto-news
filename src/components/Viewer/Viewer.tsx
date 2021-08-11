@@ -56,9 +56,14 @@ const Body = styled.div`
   width: 100%;
 `;
 
+const ArticleLink = styled.a<ViewerProps>`
+  font-size: ${rem(2)};
+  text-align: left;
+  font-weight: 500;
+`;
+
 const Viewer: React.FC<ViewerProps> = ({ item }: ViewerProps) => {
   const getImageContainer = () => {
-    console.log(item);
     if (item?.urlToImage) {
       return (
         <ImageContainer>
@@ -68,15 +73,36 @@ const Viewer: React.FC<ViewerProps> = ({ item }: ViewerProps) => {
     }
   };
 
+  const getAuthor = () => {
+    if (item?.author) {
+      return (
+        <Author>
+          <b>By: </b>
+          {item?.author}
+        </Author>
+      );
+    }
+  };
+
+  const getBody = () => {
+    if (item?.content) {
+      return (
+        <Body>
+          {item?.content}{" "}
+          <ArticleLink href={item?.url} target="_blank">
+            See complete article
+          </ArticleLink>
+        </Body>
+      );
+    }
+  };
+
   return (
     <ViewerContainer>
       {getImageContainer()}
       <Title>{item?.title}</Title>
-      <Author>
-        <b>By: </b>
-        {item?.author}
-      </Author>
-      <Body>{item?.content}</Body>
+      {getAuthor()}
+      {getBody()}
     </ViewerContainer>
   );
 };
