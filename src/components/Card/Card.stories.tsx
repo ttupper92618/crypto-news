@@ -10,7 +10,9 @@ export default {
   title: "Card",
 };
 
-export const Default = () => <Card />;
+export const Default = () => (
+  <Card thumbnailUrl="" description="" title="" author="" />
+);
 
 Default.story = {
   name: "default",

@@ -4,12 +4,13 @@ import { Article } from "../../services/story.service.types";
 import rem from "../../utils/rem";
 import SearchBar from "../SearchBar/SearchBar";
 import { SidebarProps } from "./Sidebar.types";
+import Card from "../Card/Card";
 
 const SidebarContainer = styled.div`
   background-color: #ffffff;
   box-shadow: 3px 0 4px -2px rgba(0, 0, 0, 0.16);
   width: ${rem(37.5)};
-  min-width: ${rem(37.5)};
+  min-width: ${rem(50)};
   overflow: hidden;
   text-align: left;
 `;
@@ -27,6 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   onItemSelected,
 }: SidebarProps) => {
   const handleItemClick = (item: Article) => {
+    console.log(item);
     if (onItemSelected) onItemSelected(item);
   };
 
@@ -34,16 +36,17 @@ const Sidebar: React.FC<SidebarProps> = ({
     <SidebarContainer>
       <SearchBar term={term}></SearchBar>
       <SidebarContent>
-        <ul>
-          {
-            // dump all the names into the dom for now
-            stories?.articles.map((item: Article) => {
-              return (
-                <li onClick={() => handleItemClick(item)}>{item.title}</li>
-              );
-            })
-          }
-        </ul>
+        {stories?.articles.map((item: Article) => {
+          return (
+            <Card
+              thumbnailUrl={item.urlToImage}
+              title={item.title}
+              author={item.author}
+              description={item.description}
+              onCardClicked={() => handleItemClick(item)}
+            ></Card>
+          );
+        })}
       </SidebarContent>
     </SidebarContainer>
   );
