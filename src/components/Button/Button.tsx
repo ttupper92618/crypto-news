@@ -14,7 +14,7 @@ const StyledButton = styled.button<ButtonProps>`
   background-color: ${({ primary }: ButtonProps) =>
     primary ? "#1ea7fd" : "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset"};
   font-size: ${({ size }: ButtonProps) =>
-    size == "small" ? rem(1.4) : size == "medium" ? rem(1.75) : rem(2)};
+    size == "small" ? rem(1.5) : size == "medium" ? rem(1.75) : rem(2.25)};
   padding: ${({ size }: ButtonProps) =>
     size == "small"
       ? `${rem(1.4)} ${rem(1.75)}`

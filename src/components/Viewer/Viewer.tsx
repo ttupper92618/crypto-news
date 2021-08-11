@@ -5,7 +5,7 @@ import { ViewerProps } from "./Viewer.types";
 
 const ViewerContainer = styled.div<ViewerProps>`
   overflow: auto;
-  height: calc(100vh - 66px);
+  height: calc(100vh - ${rem(9.75)});
 `;
 
 const Viewer: React.FC<ViewerProps> = ({ content }: ViewerProps) => {

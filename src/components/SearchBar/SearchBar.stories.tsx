@@ -10,7 +10,7 @@ export default {
   title: "SearchBar",
 };
 
-export const Default = () => <SearchBar />;
+export const Default = () => <SearchBar term="crypto" />;
 
 Default.story = {
   name: "default",

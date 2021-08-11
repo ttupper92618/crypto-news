@@ -24,6 +24,7 @@ function App() {
   const [initialLoadDone, setInitialLoadDone] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
   const [allStories, setAllStories] = useState<Articles>();
+  const [searchTerm, setSearchTerm] = useState("crypto");
 
   useEffect(() => {
     // the first time the app spins up, get everything and hide the overlay when done
