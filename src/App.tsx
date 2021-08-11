@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Overlay from "./components/Overlay/Overlay";
 import { StoryService } from "./services/story.service";
 import { Articles, Error } from "./services/story.service.types";
-import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
 import styled from "styled-components";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -58,8 +57,8 @@ function App() {
       <Layout>
         <Header />
         <ViewerAssembly>
-          <Sidebar />
-          <Viewer content={allStories}></Viewer>
+          <Sidebar term={searchTerm} stories={allStories} />
+          <Viewer></Viewer>
         </ViewerAssembly>
       </Layout>
     </div>

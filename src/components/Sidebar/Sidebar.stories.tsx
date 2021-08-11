@@ -10,7 +10,7 @@ export default {
   title: "Sidebar",
 };
 
-export const Default = () => <Sidebar />;
+export const Default = () => <Sidebar term="crypto" />;
 
 Default.story = {
   name: "default",

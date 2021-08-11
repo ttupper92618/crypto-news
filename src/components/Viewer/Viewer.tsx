@@ -9,18 +9,7 @@ const ViewerContainer = styled.div<ViewerProps>`
 `;
 
 const Viewer: React.FC<ViewerProps> = ({ content }: ViewerProps) => {
-  return (
-    <ViewerContainer>
-      <ul>
-        {
-          // dump all the URLs into the dom for now
-          content?.articles.map((item: any) => {
-            return <li>{item.url}</li>;
-          })
-        }
-      </ul>
-    </ViewerContainer>
-  );
+  return <ViewerContainer></ViewerContainer>;
 };
 
 export default Viewer;
