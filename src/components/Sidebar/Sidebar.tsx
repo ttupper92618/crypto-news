@@ -27,24 +27,31 @@ const Sidebar: React.FC<SidebarProps> = ({
   onTermChanged,
   onItemSelected,
 }: SidebarProps) => {
-  const handleItemClick = (item: Article) => {
-    console.log(item);
-    if (onItemSelected) onItemSelected(item);
+  const handleLiftedTermChange = (term: string) => {
+    if (onTermChanged) {
+      onTermChanged(term);
+    }
+  };
+
+  const handleLiftedCardClick = (item: any) => {
+    if (onItemSelected) {
+      onItemSelected(item);
+    }
   };
 
   return (
     <SidebarContainer>
-      <SearchBar term={term}></SearchBar>
+      <SearchBar
+        term={term}
+        onTermChanged={(e) => handleLiftedTermChange(e)}
+      ></SearchBar>
       <SidebarContent>
         {stories?.articles.map((item: Article, index) => {
           return (
             <Card
               key={index}
-              thumbnailUrl={item.urlToImage}
-              title={item.title}
-              author={item.author}
-              description={item.description}
-              onCardClicked={() => handleItemClick(item)}
+              item={item}
+              onCardClicked={(item) => handleLiftedCardClick(item)}
             ></Card>
           );
         })}

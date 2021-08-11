@@ -29,14 +29,7 @@ function App() {
   useEffect(() => {
     // the first time the app spins up, get everything and hide the overlay when done
     if (!initialLoadDone) {
-      storyService
-        .getEverything("crypto")
-        .then((res) => {
-          handleInitialLoad(res);
-        })
-        .catch((err) => {
-          handleError(err);
-        });
+      fetchStories(searchTerm);
     }
   });
 
@@ -53,7 +46,22 @@ function App() {
 
   const changeStory = (item: Article) => {
     setSelectedStory(item);
-    console.log(item);
+  };
+
+  const changeTerm = (term: string) => {
+    setSearchTerm(term);
+    fetchStories(term);
+  };
+
+  const fetchStories = (term: string) => {
+    storyService
+      .getEverything(term)
+      .then((res) => {
+        handleInitialLoad(res);
+      })
+      .catch((err) => {
+        handleError(err);
+      });
   };
 
   // Just dumping the retrieved stories to the viewer for now.
@@ -67,6 +75,7 @@ function App() {
             term={searchTerm}
             stories={allStories}
             onItemSelected={changeStory}
+            onTermChanged={changeTerm}
           />
           <Viewer item={selectedStory}></Viewer>
         </ViewerAssembly>

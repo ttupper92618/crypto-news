@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { SearchBarProps } from "./SearchBar.types";
 import rem from "../../utils/rem";
@@ -21,6 +21,7 @@ const SearchBarField = styled.input`
   width: 100%;
   padding: 0 ${rem(1)} 0 ${rem(1)};
   border: ${rem(0.125)} solid #cccccc;
+  outline: none;
 `;
 
 const SearchBarLabel = styled.div`
@@ -31,11 +32,27 @@ const SearchBarLabel = styled.div`
   padding-right: ${rem(1)};
 `;
 
-const SearchBar: React.FC<SearchBarProps> = ({ term }: SearchBarProps) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  term,
+  onTermChanged,
+}: SearchBarProps) => {
+  const [searchTerm, setSearchTerm] = useState(term);
+
+  const handleSearchTermChange = (term: string) => {
+    setSearchTerm(term);
+    if (onTermChanged) {
+      onTermChanged(term);
+    }
+  };
+
   return (
     <SearchBarContainer>
       <SearchBarLabel>Search for:</SearchBarLabel>
-      <SearchBarField type="search" value="crypto"></SearchBarField>
+      <SearchBarField
+        type="search"
+        value={searchTerm}
+        onChange={(e) => handleSearchTermChange(e.target.value)}
+      ></SearchBarField>
     </SearchBarContainer>
   );
 };

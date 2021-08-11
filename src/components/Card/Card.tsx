@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import rem from "../../utils/rem";
 import { CardProps } from "./Card.types";
+import { Article } from "../../services/story.service.types";
 
 const CardContainer = styled.div<CardProps>`
   display: flex;
@@ -24,6 +25,7 @@ const ThumbnailContainer = styled.div`
   border-color: #e2e2e2;
   border-style: solid;
   border-width: ${rem(0.125)};
+  padding: ${rem(0.5)};
 `;
 
 const DetailsContainer = styled.div`
@@ -59,21 +61,21 @@ const Description = styled.div`
   cursor: hand;
 `;
 
-const Card: React.FC<CardProps> = ({
-  thumbnailUrl,
-  title,
-  author,
-  description,
-  onCardClicked,
-}: CardProps) => {
+const Card: React.FC<CardProps> = ({ item, onCardClicked }: CardProps) => {
+  const handleCardClick = () => {
+    if (onCardClicked) {
+      onCardClicked(item);
+    }
+  };
+
   return (
-    <CardContainer>
+    <CardContainer onClick={() => handleCardClick()}>
       <ThumbnailContainer>
-        <Thumbnail src={thumbnailUrl}></Thumbnail>
+        <Thumbnail src={item?.urlToImage}></Thumbnail>
       </ThumbnailContainer>
       <DetailsContainer>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
+        <Title>{item?.title}</Title>
+        <Description>{item?.description}</Description>
       </DetailsContainer>
     </CardContainer>
   );
