@@ -36,9 +36,10 @@ const Sidebar: React.FC<SidebarProps> = ({
     <SidebarContainer>
       <SearchBar term={term}></SearchBar>
       <SidebarContent>
-        {stories?.articles.map((item: Article) => {
+        {stories?.articles.map((item: Article, index) => {
           return (
             <Card
+              key={index}
               thumbnailUrl={item.urlToImage}
               title={item.title}
               author={item.author}
