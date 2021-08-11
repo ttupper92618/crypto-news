@@ -1,4 +1,3 @@
-import { IndeterminateCheckBox } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import rem from "../../utils/rem";
@@ -49,6 +48,14 @@ const Author = styled.div`
   width: 100%;
 `;
 
+const Body = styled.div`
+  color: #343434;
+  font-size: ${rem(2)};
+  text-align: left;
+  padding-top: ${rem(2)};
+  width: 100%;
+`;
+
 const Viewer: React.FC<ViewerProps> = ({ item }: ViewerProps) => {
   const getImageContainer = () => {
     console.log(item);
@@ -69,6 +76,7 @@ const Viewer: React.FC<ViewerProps> = ({ item }: ViewerProps) => {
         <b>By: </b>
         {item?.author}
       </Author>
+      <Body>{item?.content}</Body>
     </ViewerContainer>
   );
 };
