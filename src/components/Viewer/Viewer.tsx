@@ -120,47 +120,58 @@ const Viewer: React.FC<ViewerProps> = ({ item }: ViewerProps) => {
     }
   };
 
+  const getSharing = () => {
+    if (item?.content) {
+      return (
+        <ShareContainer>
+          <ShareItem>
+            <FacebookShareButton url={item?.url} quote={item?.title}>
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
+          </ShareItem>
+
+          <ShareItem>
+            <TwitterShareButton url={item?.url} title={item?.title}>
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+          </ShareItem>
+
+          <ShareItem>
+            <LinkedinShareButton url={item?.url} title={item?.title}>
+              <LinkedinIcon size={32} round />
+            </LinkedinShareButton>
+          </ShareItem>
+
+          <ShareItem>
+            <PinterestShareButton
+              url={item?.url}
+              description={item?.title}
+              media=""
+            >
+              <PinterestIcon size={32} round />
+            </PinterestShareButton>
+          </ShareItem>
+
+          <ShareItem>
+            <FacebookMessengerShareButton
+              url={item?.url}
+              appId="521270401588372"
+            >
+              <FacebookMessengerIcon size={32} round />
+            </FacebookMessengerShareButton>
+          </ShareItem>
+        </ShareContainer>
+      );
+    }
+  };
+
   return (
     <ViewerContainer>
       {getImageContainer()}
       <Title>{item?.title}</Title>
       {getAuthor()}
       {getBody()}
-      <ShareContainer>
-        <ShareItem>
-          <FacebookShareButton url={item?.url} quote={item?.title}>
-            <FacebookIcon size={32} round />
-          </FacebookShareButton>
-        </ShareItem>
-
-        <ShareItem>
-          <TwitterShareButton url={item?.url} title={item?.title}>
-            <TwitterIcon size={32} round />
-          </TwitterShareButton>
-        </ShareItem>
-
-        <ShareItem>
-          <LinkedinShareButton url={item?.url} title={item?.title}>
-            <LinkedinIcon size={32} round />
-          </LinkedinShareButton>
-        </ShareItem>
-
-        <ShareItem>
-          <PinterestShareButton
-            url={item?.url}
-            description={item?.title}
-            media=""
-          >
-            <PinterestIcon size={32} round />
-          </PinterestShareButton>
-        </ShareItem>
-
-        <ShareItem>
-          <FacebookMessengerShareButton url={item?.url} appId="521270401588372">
-            <FacebookMessengerIcon size={32} round />
-          </FacebookMessengerShareButton>
-        </ShareItem>
-      </ShareContainer>
+      {getSharing()}
     </ViewerContainer>
   );
 };
