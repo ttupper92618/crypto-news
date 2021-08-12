@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import styled from "styled-components";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Viewer from "./components/Viewer/Viewer";
+import { useDebouncedCallback } from "use-debounce";
 
 const Layout = styled.div`
   display: flex;
@@ -48,10 +49,15 @@ function App() {
     setSelectedStory(item);
   };
 
-  const changeTerm = (term: string) => {
+  /*const changeTerm = (term: string) => {
     setSearchTerm(term);
     fetchStories(term);
-  };
+  };*/
+
+  const changeTerm = useDebouncedCallback((term: string) => {
+    setSearchTerm(term);
+    fetchStories(term);
+  }, 700);
 
   const fetchStories = (term: string) => {
     storyService
