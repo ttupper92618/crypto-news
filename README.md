@@ -2,6 +2,8 @@
 
 This is a React application which provides access to crypto related news using a fun, engaging user experience.
 
+![](./assets/cryptly.png?raw=true "Title")
+
 ## **Getting Started** ##
 
 This project uses nodeJS, NPM, and yarn.  In other words, it presumes that your computer is configured properly as a development machine.  Male sure you meet these requirements before continuing.
