@@ -71,7 +71,7 @@ This project enforces some best practices via the use of **husky** to lint all c
 
 ## **Next Steps**
 
-- Finish a basic implementation
+- Redux
 - Real tests
 - CI/CD using GitHub actions
 - Mobile support
