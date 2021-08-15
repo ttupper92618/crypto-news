@@ -31,6 +31,8 @@ function App() {
     // searchTerm is debounced in the changeterm method.
     if (searchTerm != "") {
       fetchStories(searchTerm);
+    } else {
+      setAllStories(undefined);
     }
   }, [searchTerm]);
 

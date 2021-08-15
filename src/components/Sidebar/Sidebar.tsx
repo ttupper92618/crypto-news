@@ -26,6 +26,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   stories,
   onTermChanged,
   onItemSelected,
+  loading,
 }: SidebarProps) => {
   const handleLiftedTermChange = (term: string) => {
     if (onTermChanged) {

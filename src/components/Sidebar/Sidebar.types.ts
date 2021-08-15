@@ -5,4 +5,5 @@ export interface SidebarProps {
   stories?: Articles;
   onTermChanged?: (term: string) => void;
   onItemSelected?: (item: Article) => void;
+  loading?: boolean;
 }
