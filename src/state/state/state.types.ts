@@ -9,11 +9,11 @@ export interface User {
 export interface AppState {
   term: string;
   pageSize: number;
-  pageCount: number;
+  pageCount?: number;
   currentPage: number;
-  resultCount: number;
-  results: Articles;
-  currentArticle: Article;
+  resultCount?: number;
+  articles?: Articles;
+  currentArticle?: Article;
   user?: User;
   loggedIn: boolean;
   firstTime?: boolean;

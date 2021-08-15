@@ -1,0 +1,2 @@
+export const UPDATE_ARTICLES = "UPDATE_ARTICLES";
+export const UPDATE_TERM = "UPDATE_TERM";
