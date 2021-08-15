@@ -21,22 +21,21 @@ const ViewerAssembly = styled.div`
 function App() {
   const storyService = new StoryService();
 
-  const [initialLoadDone, setInitialLoadDone] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
   const [allStories, setAllStories] = useState<Articles>();
   const [searchTerm, setSearchTerm] = useState("crypto");
   const [selectedStory, setSelectedStory] = useState<Article>();
 
   useEffect(() => {
-    // the first time the app spins up, get everything and hide the overlay when done
-    if (!initialLoadDone) {
+    // call to fetchStories each each time searchTerm updates.
+    // searchTerm is debounced in the changeterm method.
+    if (searchTerm != "") {
       fetchStories(searchTerm);
     }
-  });
+  }, [searchTerm]);
 
   const handleInitialLoad = (response: Articles) => {
     setAllStories(response as any);
-    setInitialLoadDone(true);
     setShowOverlay(false);
   };
 
@@ -49,14 +48,8 @@ function App() {
     setSelectedStory(item);
   };
 
-  /*const changeTerm = (term: string) => {
-    setSearchTerm(term);
-    fetchStories(term);
-  };*/
-
   const changeTerm = useDebouncedCallback((term: string) => {
     setSearchTerm(term);
-    fetchStories(term);
   }, 700);
 
   const fetchStories = (term: string) => {
@@ -70,7 +63,6 @@ function App() {
       });
   };
 
-  // Just dumping the retrieved stories to the viewer for now.
   return (
     <div className="App">
       <Overlay show={showOverlay} loaderWidth={60} />
