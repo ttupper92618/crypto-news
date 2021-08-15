@@ -25,6 +25,7 @@ function App() {
   const [allStories, setAllStories] = useState<Articles>();
   const [searchTerm, setSearchTerm] = useState("crypto");
   const [selectedStory, setSelectedStory] = useState<Article>();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // call to fetchStories each each time searchTerm updates.
@@ -36,14 +37,16 @@ function App() {
     }
   }, [searchTerm]);
 
-  const handleInitialLoad = (response: Articles) => {
+  const handleLoad = (response: Articles) => {
     setAllStories(response as any);
     setShowOverlay(false);
+    setIsLoading(false);
   };
 
   const handleError = (err: any) => {
     // @ToDo: do something useful with error handling here
     console.log(err);
+    setIsLoading(false);
   };
 
   const changeStory = (item: Article) => {
@@ -55,10 +58,11 @@ function App() {
   }, 700);
 
   const fetchStories = (term: string) => {
+    setIsLoading(true);
     storyService
       .getEverything(term)
       .then((res) => {
-        handleInitialLoad(res);
+        handleLoad(res);
       })
       .catch((err) => {
         handleError(err);
@@ -76,6 +80,7 @@ function App() {
             stories={allStories}
             onItemSelected={changeStory}
             onTermChanged={changeTerm}
+            loading={isLoading}
           />
           <Viewer item={selectedStory}></Viewer>
         </ViewerAssembly>

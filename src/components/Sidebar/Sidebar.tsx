@@ -5,6 +5,7 @@ import rem from "../../utils/rem";
 import SearchBar from "../SearchBar/SearchBar";
 import { SidebarProps } from "./Sidebar.types";
 import Card from "../Card/Card";
+import Loading from "../Loading/Loading";
 
 const SidebarContainer = styled.div`
   background-color: #ffffff;
@@ -19,6 +20,16 @@ const SidebarContent = styled.div`
   height: calc(100vh - ${rem(16.25)});
   overflow-y: auto;
   padding-right: ${rem(1.5)};
+`;
+
+const LoaderContent = styled.div`
+  height: calc(100vh - ${rem(16.25)});
+  overflow-y: auto;
+  padding-right: ${rem(1.5)};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -46,17 +57,23 @@ const Sidebar: React.FC<SidebarProps> = ({
         term={term}
         onTermChanged={(e) => handleLiftedTermChange(e)}
       ></SearchBar>
-      <SidebarContent>
-        {stories?.articles.map((item: Article, index) => {
-          return (
-            <Card
-              key={index}
-              item={item}
-              onCardClicked={(item) => handleLiftedCardClick(item)}
-            ></Card>
-          );
-        })}
-      </SidebarContent>
+      {!loading ? (
+        <SidebarContent>
+          {stories?.articles.map((item: Article, index) => {
+            return (
+              <Card
+                key={index}
+                item={item}
+                onCardClicked={(item) => handleLiftedCardClick(item)}
+              ></Card>
+            );
+          })}
+        </SidebarContent>
+      ) : (
+        <LoaderContent>
+          <Loading show={loading} size="medium"></Loading>
+        </LoaderContent>
+      )}
     </SidebarContainer>
   );
 };
