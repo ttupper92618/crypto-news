@@ -8,8 +8,6 @@ import styled from "styled-components";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Viewer from "./components/Viewer/Viewer";
 import { useDebouncedCallback } from "use-debounce";
-import { Provider } from "react-redux";
-import store from "./state//state/index";
 
 const Layout = styled.div`
   display: flex;
@@ -74,22 +72,20 @@ function App() {
 
   return (
     <div className="App">
-      <Provider store={store}>
-        <Overlay show={showOverlay} loaderWidth={60} />
-        <Layout>
-          <Header />
-          <ViewerAssembly>
-            <Sidebar
-              term={searchTerm}
-              stories={allStories}
-              onItemSelected={changeStory}
-              onTermChanged={changeTerm}
-              loading={isLoading}
-            />
-            <Viewer item={selectedStory}></Viewer>
-          </ViewerAssembly>
-        </Layout>
-      </Provider>
+      <Overlay show={showOverlay} loaderWidth={60} />
+      <Layout>
+        <Header />
+        <ViewerAssembly>
+          <Sidebar
+            term={searchTerm}
+            stories={allStories}
+            onItemSelected={changeStory}
+            onTermChanged={changeTerm}
+            loading={isLoading}
+          />
+          <Viewer item={selectedStory}></Viewer>
+        </ViewerAssembly>
+      </Layout>
     </div>
   );
 }
