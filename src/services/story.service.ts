@@ -26,6 +26,7 @@ export class StoryService {
    */
   getEverything = (
     term: String,
+    pageSize: number,
     fromDate?: Date,
     toDate?: Date
   ): Promise<Articles> => {
@@ -33,7 +34,7 @@ export class StoryService {
     return new Promise((resolve, reject) => {
       axios
         .get(
-          `https://newsapi.org/v2/everything?q=${term}&from=2021-07-30&pageSize=100&sortBy=publishedAt&apiKey=${apiKey}`
+          `https://newsapi.org/v2/everything?q=${term}&from=2021-07-30&pageSize=${pageSize}&sortBy=publishedAt&apiKey=${apiKey}`
         )
         .then((res) => {
           results = res.data;
